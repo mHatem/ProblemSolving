@@ -136,14 +136,52 @@ public class ArraysProblems {
         }
         if (end == -1 && start == -1 && newInterval.end < intervals.get(0).start) {
             result.add(0, new Interval(newInterval.start, newInterval.end));
-        }
-        else if (end == -1 && start == -1 && newInterval.start < intervals.get(intervals.size() - 1).end) {
+        } else if (end == -1 && start == -1 && newInterval.start < intervals.get(intervals.size() - 1).end) {
             result.add(new Interval(newInterval.start, newInterval.end));
         } else if (end == -1) {
             result.add(new Interval(newInterval.start, newInterval.end));
         }
 
         return result;
+    }
+
+    /*
+     Print concentric rectangular pattern in a 2d matrix. 
+     Input: A = 3.
+     Output:
+     3 3 3 3 3 
+     3 2 2 2 3 
+     3 2 1 2 3 
+     3 2 2 2 3 
+     3 3 3 3 3 
+     */
+    public ArrayList<ArrayList<Integer>> prettyPrint(int a) {
+        int size = (a * 2) - 1;
+        ArrayList<ArrayList<Integer>> res = new ArrayList<>(Collections.nCopies(size, null));
+        ArrayList<Integer> tmp = new ArrayList<>(Collections.nCopies(size, 0));
+        int j, val;
+        for (int i = 0; i < a; i++) {
+            for (j = 0; j < a; j++) {
+                if (j <= i) {
+                    val = a - j;
+                } else {
+                    val = a - i;
+                }
+                tmp.set(j, val);
+                if (size - j - 1 >= a) {
+                    tmp.set(size - j - 1, val);
+                }
+            }
+
+            // System.out.println(tmp);
+            res.set(i, tmp);
+            if (size - i - 1 >= a) {
+                res.set(size - i - 1, tmp);
+            }
+            tmp = new ArrayList<>(Collections.nCopies(size, 0));
+        }
+
+        return res;
     }
 
 }

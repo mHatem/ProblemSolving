@@ -39,24 +39,10 @@ public class ProblemSolving {
 //        for(int i = 0 ; i < s.size(); i++)
 //            System.out.println(q.dequeue());
         
-        ArrayList<Integer> A = new ArrayList<>();
-        A.add(5);
-        A.add(4);
-        A.add(3);
-        A.add(2);
-        A.add(1);
-        
-        ArrayList<Interval> AInt = new ArrayList<>();
-        AInt.add(new Interval(1, 2));
-        AInt.add(new Interval(3, 6));
-        
-      
-        ArraysProblems arr = new ArraysProblems();
-        //System.out.println(arr.insertInterval(AInt,new Interval(4, 9))); 
-        //System.out.println(A); 
-       AInt =  arr.insertInterval(AInt,new Interval(8, 10));
-       for(Interval i : AInt){
-           System.out.println("[ " + i.start +" , "+ i.end +" ]");
-       }
+        ArraysProblems a  =  new  ArraysProblems();
+         ArrayList<ArrayList<Integer>> res = a.prettyPrint(9);
+         for(int i=0 ;i<res.size(); i++){
+             System.out.println(res.get(i));
+         }
     }  
 }
