@@ -6,8 +6,6 @@
 package problemsolving;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 
 /**
  *
@@ -19,7 +17,7 @@ public class ProblemSolving {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       // Test stack
+        // Test stack
 //        Stack s = new Stack();
 //        s.push(3);
 //        s.push(4);
@@ -38,11 +36,17 @@ public class ProblemSolving {
 //        
 //        for(int i = 0 ; i < s.size(); i++)
 //            System.out.println(q.dequeue());
+
+        ArrayList<Integer> test = new ArrayList<>();
+        test.add(1);
+        test.add(2);
+        test.add(6);
+        test.add(9);
+        test.add(9);
         
-        ArraysProblems a  =  new  ArraysProblems();
-         ArrayList<ArrayList<Integer>> res = a.prettyPrint(9);
-         for(int i=0 ;i<res.size(); i++){
-             System.out.println(res.get(i));
-         }
-    }  
+
+        searchProblems sp = new searchProblems();
+        System.out.print(sp.searchRange(test, 2));
+        
+    }
 }
