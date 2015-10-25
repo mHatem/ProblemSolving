@@ -22,6 +22,7 @@ public class Stack {
             tmp =  top.data;
             top = top.next;
         }
+        size --;
         return tmp;
     }
     public void push(Object value){

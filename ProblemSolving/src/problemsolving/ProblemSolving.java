@@ -7,6 +7,8 @@ package problemsolving;
 
 import java.util.ArrayList;
 
+
+
 /**
  *
  * @author MHatem
@@ -37,16 +39,28 @@ public class ProblemSolving {
 //        for(int i = 0 ; i < s.size(); i++)
 //            System.out.println(q.dequeue());
 
-        ArrayList<Integer> test = new ArrayList<>();
-        test.add(1);
-        test.add(2);
-        test.add(6);
-        test.add(9);
-        test.add(9);
         
-
-        searchProblems sp = new searchProblems();
-        System.out.print(sp.searchRange(test, 2));
+      
+        ArrayList<Integer> test = new ArrayList<>();
+        test.add(4); 
+        test.add(7);
+        test.add(-4);
+        test.add(2);
+        test.add(2);
+        test.add(2);
+        test.add(3);
+        test.add(-5);
+        test.add(-3);
+        test.add(9);
+        test.add(-4);
+        test.add(9);
+       
+        Others p = new Others();
+        ArrayList<Integer> res = p.twoSum(test,-3);
+        
+        System.out.println(res);
+       
+        
         
     }
 }
