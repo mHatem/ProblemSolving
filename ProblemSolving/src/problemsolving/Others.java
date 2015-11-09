@@ -6,9 +6,11 @@
 package problemsolving;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Set;
 
 /**
  *
@@ -72,9 +74,35 @@ public class Others {
     }
 
     /*
-     You are given a string, S, and a list of words, L, that are all of the same length.
-     Find all starting indices of substring(s) in S that is a concatenation of each word in L exactly once and without any intervening characters.
+     Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
+
+     Example: 
+     Given [100, 4, 200, 1, 3, 2],
+     The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4.
+
+     Your algorithm should run in O(n) complexity.
      */
-    public ArrayList<Integer> findSubstring(String a, final List<String> b) {
+    public int longestConsecutive(final List<Integer> a) {
+       int max = 0 ;
+        Set input =new HashSet(a);
+       for(int i = 0 ; i< a.size() ; i++){
+           int smaller = a.get(i)-1;
+           int greater = a.get(i)+1;
+           int count = 1;
+           while(input.contains(smaller)){
+               count ++;
+               input.remove(smaller);
+                 smaller --;
+           }
+           while(input.contains(greater)){
+               count ++;
+               input.remove(greater);
+               greater++;
+           }
+           if(count > max)
+               max = count;
+       }
+       
+        return max;
     }
 }

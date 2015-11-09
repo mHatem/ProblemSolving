@@ -3,42 +3,50 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package problemsolving;
+package DataStructure;
 
 /**
  *
  * @author MHatem
+ *
+ * Queue data structure written by JAVA
  */
 public class Queue {
+
     private Node first, last;
     private int size = 0;
-    
-    public Object dequeue(){
+
+    public Object dequeue() {
         Object tmp;
-        if(first == null){
+        if (first == null) {
             tmp = null;
-        }
-        else{
+        } else {
             tmp = first.data;
             first = first.next;
+            size--;
         }
         return tmp;
     }
-    
-    public void enqueue(Object value){
+
+    public void enqueue(Object value) {
         Node x = new Node(value);
-        if(first == null){
+        if (first == null) {
             first = x;
             last = x;
-        }
-        else{
+        } else {
             last.next = x;
             last = x;
         }
         size++;
     }
-    
-    public int size(){
+
+    public Object getFirst() {
+        if(first == null)
+            return null;
+        return first.data;
+    }
+
+    public int size() {
         return size;
     }
 }

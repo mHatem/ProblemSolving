@@ -6,7 +6,6 @@
 package problemsolving;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *
@@ -15,10 +14,26 @@ import java.util.HashMap;
 public class StringsProblems {
 
     /*
+     Print triangle
+     */
+    public String printTringle(int n) {
+        String tri="";
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j < i; j++) {
+                tri += "*";
+            }
+            tri +="\n";
+        }
+        
+        return tri;
+    }
+    /*
      Write a function to find the longest common prefix string amongst an array of strings.
      Longest common prefix for a pair of strings S1 and S2 is the longest string S which is the prefix of both S1 and S2.
      As an example, longest common prefix of "abcdefgh" and "abcefgh" is "abc".
      */
+
     public String longestCommonPrefix(ArrayList<String> a) {
 
         if (a.isEmpty()) {
@@ -171,7 +186,7 @@ public class StringsProblems {
      */
 
     public ArrayList<String> fullJustify(ArrayList<String> a, int b) {
-        
+
         return null;
     }
 
@@ -179,27 +194,28 @@ public class StringsProblems {
      Given a string S, find the longest palindromic substring in S.
      Input : "aaaabaaa"
      Output : "aaabaaa"
-    //Not compleleted :)
+     //Not compleleted :)
      */
     public String longestPalindrome(String a) {
-        if(a.length()==0 )
+        if (a.length() == 0) {
             return "";
-        
+        }
+
         StringBuilder tmp = new StringBuilder(a);
         String reverseStr = tmp.reverse().toString();
         tmp = new StringBuilder();
         String res = "";
-       for(int i = 0 ; i < a.length() ; i ++){
-           
-          while(i < a.length() && a.charAt(i) == reverseStr.charAt(i)){
-              tmp.append(a.charAt(i));
-              i++;
-          }
-          if(tmp.length() > res.length()){
-              res = tmp.toString();
-              tmp =  new StringBuilder();
-          }
-       }
-     return res;
+        for (int i = 0; i < a.length(); i++) {
+
+            while (i < a.length() && a.charAt(i) == reverseStr.charAt(i)) {
+                tmp.append(a.charAt(i));
+                i++;
+            }
+            if (tmp.length() > res.length()) {
+                res = tmp.toString();
+                tmp = new StringBuilder();
+            }
+        }
+        return res;
     }
 }

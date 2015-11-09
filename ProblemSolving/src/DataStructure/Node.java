@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package problemsolving;
+package DataStructure;
 
 /**
  *
  * @author MHatem
+ * 
+ * Node class is  the basic start to build each of LinkedList , queue and stack :)
  */
 public class Node {
-    Object data ;
+    Object data = null ;
     Node next ;
     
     public Node(Object value){
