@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Set;
 
@@ -104,5 +105,19 @@ public class Others {
        }
        
         return max;
+    }
+    
+    public int removeDuplicates(ArrayList<Integer> a) {
+        int i = 0;
+        while(i < a.size())
+        {
+ 
+                if(Objects.equals(a.get(i), a.get(i+1))){
+                    a.remove(i+1);
+                }
+                else
+                    i++;
+        }
+        return a.size();
     }
 }

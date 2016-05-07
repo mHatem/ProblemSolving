@@ -6,9 +6,14 @@
 
 
 import DataStructure.BSTree;
+import DataStructure.UndirectedGraphNode;
+import ProblemSolving2.Graphs;
 import ProblemSolving2.backTrackingDynamic;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
+import problemsolving.Others;
 
 
 
@@ -24,13 +29,13 @@ public class ProblemSolving {
     public static void main(String[] args) {
        
 
-        ArrayList<Integer> a = new ArrayList<>();
-        a.add(2);
-        a.add(3);
-        a.add(1);
-        a.add(1);
-        a.add(4);
-        backTrackingDynamic dp = new backTrackingDynamic();
-        System.out.print(dp.canJump(a));
+      ArrayList<Integer> a =  new ArrayList<>();
+      a.add(1);
+      a.add(1);
+      a.add(2);
+      Others o = new Others();
+      System.out.println(o.removeDuplicates(a));
+        
+        
     }
 }

@@ -5,10 +5,13 @@
  */
 package ProblemSolving2;
 
+import DataStructure.BSTNode;
+import DataStructure.BSTree;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  *
@@ -183,22 +186,89 @@ public class backTrackingDynamic {
      */
 
     public int canJump(ArrayList<Integer> a) {
-       if(a.size() <= 1)
-           return 1;
-        return jump(a,0,a.get(0),a.size()-1);
-       
+        if (a.size() <= 1) {
+            return 1;
+        }
+        return jump(a, 0, a.get(0), a.size() - 1);
+
     }
-    
-    private int jump(ArrayList<Integer> a,int current,int maxJump,int target){
-        if(current > target)
+
+    private int jump(ArrayList<Integer> a, int current, int maxJump, int target) {
+        if (current > target) {
             return 0;
-        
-        for(int i = 1 ; i <= maxJump ; i++){
-            if(i + current == target)
+        }
+
+        for (int i = 1; i <= maxJump; i++) {
+            if (i + current == target) {
                 return 1;
-            if(jump(a, i+current, maxJump, target) == 1) 
+            }
+            if (jump(a, i + current, maxJump, target) == 1) {
                 return 1;
+            }
         }
         return 0;
     }
+
+    public boolean wordBreak(String s, Set<String> wordDict) {
+        if (wordDict.contains(s)) {
+            return true;
+        }
+        int len = 0;
+        String tmp = "";
+        for (int i = 0; i < s.length(); i++) {
+            tmp += s.charAt(i);
+            if (wordDict.contains(tmp)) {
+                len += tmp.length();
+                tmp = "";
+            }
+        }
+        if (len == s.length()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public int candy(ArrayList<Integer> ratings) {
+        ArrayList<Integer> candies = new ArrayList<>();
+        int res = 0;
+        candies.add(1);
+        int i;
+        for (i = 1; i < ratings.size(); i++) {
+            if (ratings.get(i - 1) < ratings.get(i)) {
+                candies.add(candies.get(i - 1));
+            } else {
+                candies.add(1);
+            }
+        }
+        for (i = ratings.size() - 2; i >= 0; i--) {
+            int cur = 1;
+            if (ratings.get(i + 1) > ratings.get(i)) {
+                cur = candies.get(i + 1) + 1;
+            }
+            cur = Math.max(cur, candies.get(i));
+            candies.set(i, cur);
+        }
+
+        for (i = 0; i < candies.size(); i++) {
+            res += candies.get(i);
+        }
+        return res;
+
+    }
+
+    public ArrayList<BSTNode> generateTrees(int a) {
+        ArrayList<BSTNode> res =  new ArrayList<>();
+        
+        for (int i = 1; i <= a; i++) {
+            BSTree tree = new BSTree(i);
+            createTrees(res, a, tree);
+        }
+        return null;
+    }
+
+    private void createTrees(ArrayList<BSTNode> res, int a,BSTree tree) {
+              
+    }
+
 }

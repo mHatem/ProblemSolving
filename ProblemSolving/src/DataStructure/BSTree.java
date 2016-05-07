@@ -5,6 +5,7 @@
  */
 package DataStructure;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -110,21 +111,53 @@ public class BSTree {
         BSTNode tmp = root;
         if (tmp != null) {
             q.enqueue(tmp);
-            while (q.size() != 0) {
+            while (0 != q.size()) {
                 BSTNode item = (BSTNode) q.dequeue();
                 System.out.print(item.getData() + " ");
                 if (item.getLeft() != null) {
                     qTmp.enqueue(item.getLeft());
                 }
-                if (item.getRight()!= null) {
+                if (item.getRight() != null) {
                     qTmp.enqueue(item.getRight());
                 }
-                if(q.size() == 0){
-                    q= qTmp;
+                if (q.size() == 0) {
+                    q = qTmp;
                     qTmp = new Queue();
                 }
             }
         }
+    }
+    /*
+    Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).
+    */
+    public ArrayList<ArrayList<Integer>> levelOrder(BSTNode a) {
+        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+        ArrayList<Integer> resTmp = new ArrayList<>();
+        Queue q = new Queue();
+        Queue qTmp = new Queue();
+        BSTNode tmp = root;
+        if (tmp != null) {
+            q.enqueue(tmp);
+            while (0 != q.size()) {
+                BSTNode item = (BSTNode) q.dequeue();
+                resTmp.add(item.getData());
+                System.out.print(item.getData() + " ");
+                if (item.getLeft() != null) {
+                    qTmp.enqueue(item.getLeft());
+                }
+                if (item.getRight() != null) {
+                    qTmp.enqueue(item.getRight());
+                }
+                if (q.size() == 0) {
+                    q = qTmp;
+                    qTmp = new Queue();
+                    res.add(resTmp);
+                    resTmp =  new ArrayList<>();
+                }
+            }
+        }
+
+        return res;
     }
 
 }
