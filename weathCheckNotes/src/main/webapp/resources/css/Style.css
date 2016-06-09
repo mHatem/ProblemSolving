@@ -1,0 +1,105 @@
+body {
+	background: #eee !important;
+}
+
+.wrapper {
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+
+.form-signin {
+	max-width: 380px;
+	padding: 15px 35px 45px;
+	margin: 0 auto;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	.
+	form-signin-heading
+	,
+	.checkbox
+	{
+	margin-bottom
+	:
+	30px;
+}
+
+.checkbox {
+	font-weight: normal;
+}
+
+.form-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	@
+	include
+	box-sizing(border-box);
+	&:
+	focus
+	{
+	z-index
+	:
+	2;
+}
+
+}
+input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+	margin-bottom: 20px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.hit-the-floor {
+	color: #fff;
+	font-size: 12em;
+	font-weight: bold;
+	font-family: Helvetica;
+	text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0
+		#b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px
+		rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px
+		rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px
+		rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+}
+
+.hit-the-floor {
+	text-align: center;
+}
+.table{
+  margin: 0 0 40px 0
+  width: 100%
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2)
+  display: table
+  @media screen and (max-width: 580px)
+    display: block
+}
+.row{
+  display: table-row
+  background: #f6f6f6
+  &:nth-of-type(odd)
+    background: #e9e9e9
+  &.header
+    font-weight: 900
+    color: #ffffff
+    background: #ea6153
+  &.green
+    background: #27ae60
+  &.blue
+    background: #2980b9
+  @media screen and (max-width: 580px)
+    padding: 8px 0
+    display: block
+}
+.cell{
+  padding: 6px 12px
+  display: table-cell
+  @media screen and (max-width: 580px)
+    padding: 2px 12px
+    display: block
+}
