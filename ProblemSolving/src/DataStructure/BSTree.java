@@ -58,9 +58,10 @@ public class BSTree {
         if (tmp == null) {
             return;
         }
-        System.out.println(tmp.getData());
+        
         postOrderTraversal(tmp.getLeft());
         postOrderTraversal(tmp.getRight());
+        System.out.println(tmp.getData());
 
     }
 
@@ -128,7 +129,8 @@ public class BSTree {
         }
     }
     /*
-    Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).
+    Given a binary tree, return the level order traversal of its nodes’ values. 
+    (ie, from left to right, level by level).
     */
     public ArrayList<ArrayList<Integer>> levelOrder(BSTNode a) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
@@ -148,7 +150,7 @@ public class BSTree {
                 if (item.getRight() != null) {
                     qTmp.enqueue(item.getRight());
                 }
-                if (q.size() == 0) {
+                if (q.isEmpty()) {
                     q = qTmp;
                     qTmp = new Queue();
                     res.add(resTmp);
